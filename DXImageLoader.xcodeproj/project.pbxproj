@@ -32,6 +32,7 @@
 		E5F1FB7F199357F000E23BA2 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1FB75199357F000E23BA2 /* AFURLResponseSerialization.m */; };
 		E5F1FB80199357F000E23BA2 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1FB77199357F000E23BA2 /* AFURLSessionManager.m */; };
 		E5F1FB841993583000E23BA2 /* DXImageLoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1FB831993583000E23BA2 /* DXImageLoaderView.m */; };
+		E5F1FB8819937EE300E23BA2 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1FB8719937EE300E23BA2 /* warning.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		E5F1FB77199357F000E23BA2 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		E5F1FB821993583000E23BA2 /* DXImageLoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXImageLoaderView.h; sourceTree = "<group>"; };
 		E5F1FB831993583000E23BA2 /* DXImageLoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXImageLoaderView.m; sourceTree = "<group>"; };
+		E5F1FB8719937EE300E23BA2 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				E5F1FB5A1993574500E23BA2 /* MDRadialProgress */,
 				E5F1FB8519935A2900E23BA2 /* Example */,
 				E5F1FB3D1993570D00E23BA2 /* Images.xcassets */,
+				E5F1FB8619937EE300E23BA2 /* images */,
 				E5F1FB321993570D00E23BA2 /* Supporting Files */,
 			);
 			path = DXImageLoader;
@@ -243,6 +246,14 @@
 			name = Example;
 			sourceTree = "<group>";
 		};
+		E5F1FB8619937EE300E23BA2 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				E5F1FB8719937EE300E23BA2 /* warning.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F1FB8819937EE300E23BA2 /* warning.png in Resources */,
 				E5F1FB361993570D00E23BA2 /* InfoPlist.strings in Resources */,
 				E5F1FB3E1993570D00E23BA2 /* Images.xcassets in Resources */,
 			);
