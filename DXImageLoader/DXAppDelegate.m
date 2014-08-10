@@ -41,8 +41,16 @@
     NSURL *imageURL = [NSURL URLWithString:imageURLString];
     [imageView0 loadImageWithURL:imageURL];
     
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(120, 300, 80, 30);
+    [button setTitle:@"upload" forState:UIControlStateNormal];
+    [button addTarget:imageView0
+               action:@selector(uploadImage)
+     forControlEvents:UIControlEventTouchUpInside];
+    [self.window addSubview:button];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
