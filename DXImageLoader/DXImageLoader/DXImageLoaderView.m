@@ -32,7 +32,10 @@
     return self;
 }
 
-- (void)uploadImage
+- (void)uploadImage:(NSString *)urlString
+         parameters:(NSDictionary *)params
+           fileName:(NSString *)fileName
+           mimeType:(NSString *)mimeType
 {
     // 1. Create `AFHTTPRequestSerializer` which will create your request.
     AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
@@ -40,14 +43,14 @@
     // 2. Create an `NSMutableURLRequest`.
     NSMutableURLRequest *request =
         [serializer multipartFormRequestWithMethod:@"POST"
-                                         URLString:@"http://182.92.184.22/postTestAction"
-                                        parameters: nil
+                                         URLString:urlString
+                                        parameters:params
                          constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
         {
             [formData appendPartWithFileData:UIImageJPEGRepresentation(self.image, 1)
                                         name:@"file"
-                                    fileName:@"myimage.jpg"
-                                    mimeType:@"image/jpeg"];
+                                    fileName:fileName
+                                    mimeType:mimeType];
         }
         error:nil];
     
