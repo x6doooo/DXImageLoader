@@ -28,7 +28,10 @@
 @property(nonatomic, strong) UIColor *processCircleCompletedColor;
 
 - (id)initWithFrame:(CGRect)frame;
-- (void)uploadImage;
+- (void)uploadImage:(NSString *)urlString
+         parameters:(NSDictionary *)params
+           fileName:(NSString *)fileName
+           mimeType:(NSString *)mimeType;
 /**
  * @brief 根据URL加载图片
  * @param url 图片URL
