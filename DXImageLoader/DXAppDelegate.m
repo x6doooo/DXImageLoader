@@ -27,30 +27,34 @@
     imageView0.layer.borderColor = [[UIColor blackColor] CGColor];
     imageView0.layer.borderWidth = 0.5f;
     
-    /*
-    imageView0.processCircleWidth = 50;
-    imageView0.processCircleHeight = 50;
-    imageView0.processCircleThickness = 10;
-    imageView0.processCircleCompletedColor = [UIColor blackColor];
-    */
-     
     [self.window addSubview:imageView0];
 
-    //链接
+    // 链接
     NSString *imageURLString = [NSString stringWithFormat:@"http://182.92.184.22/statics/pics/201407311700-xxxx-color3a4737.jpg?%li", time(NULL)];
     NSURL *imageURL = [NSURL URLWithString:imageURLString];
+    // 下载
     [imageView0 loadImageWithURL:imageURL];
     
+    // 上传
+    imageView0.tag = 101;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = CGRectMake(120, 300, 80, 30);
     [button setTitle:@"upload" forState:UIControlStateNormal];
-    [button addTarget:imageView0
-               action:@selector(uploadImage)
+    [button addTarget:self
+               action:@selector(uploadImage:)
      forControlEvents:UIControlEventTouchUpInside];
     [self.window addSubview:button];
     return YES;
 }
 
+- (IBAction)uploadImage:(id)sender
+{
+    DXImageLoaderView *imageView0 = (DXImageLoaderView *)[self.window viewWithTag:101];
+    [imageView0 uploadImage:@"http://182.92.184.22/postTestAction"
+                 parameters:nil
+                   fileName:@"testimage.jpg"
+                   mimeType:@"image/jpeg"];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
