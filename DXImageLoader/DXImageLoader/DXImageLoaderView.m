@@ -16,6 +16,7 @@
 #import "MDRadialProgressView.h"
 #import "MDRadialProgressTheme.h"
 #import "MDRadialProgressLabel.h"
+#import "DXImageScrollView.h"
 
 @implementation DXImageLoaderView
 - (id)initWithFrame:(CGRect)frame
@@ -43,16 +44,16 @@
     // 2. Create an `NSMutableURLRequest`.
     NSMutableURLRequest *request =
         [serializer multipartFormRequestWithMethod:@"POST"
-                                         URLString:urlString
-                                        parameters:params
-                         constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-        {
-            [formData appendPartWithFileData:UIImageJPEGRepresentation(self.image, 1)
-                                        name:@"file"
-                                    fileName:fileName
-                                    mimeType:mimeType];
-        }
-        error:nil];
+            URLString:urlString parameters:params
+            constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+            {
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(self.image, 0.5)
+                                            name:@"file"
+                                        fileName:fileName
+                                        mimeType:mimeType];
+            }
+            error:nil];
+    
     
     // 3. Create and use `AFHTTPRequestOperationManager` to create an `AFHTTPRequestOperation` from the `NSMutableURLRequest` that we just created.
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -75,11 +76,11 @@
      */
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     // 4. Set the progress block of the operation.
-    [operation setUploadProgressBlock:^(NSUInteger __unused bytesWritten,
-                                        long long totalBytesWritten,
-                                        long long totalBytesExpectedToWrite) {
-        NSLog(@"Wrote %lld/%lld", totalBytesWritten, totalBytesExpectedToWrite);
-    }];
+    [operation setUploadProgressBlock:
+        ^(NSUInteger __unused bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite)
+        {
+            NSLog(@"Wrote %lld/%lld", totalBytesWritten, totalBytesExpectedToWrite);
+        }];
     
     // 5. Begin!
     [operation start];
@@ -121,23 +122,23 @@
     }];
 
     // 下载完毕
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
-    {
+    [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject)
+        {
 
-        [radialView removeFromSuperview];
-        self.image = responseObject;
+            [radialView removeFromSuperview];
+            self.image = responseObject;
         
-    }
-    failure:^(AFHTTPRequestOperation *operation, NSError *error)
-    {
-        UIImageView *errorImgView = [[UIImageView alloc]
-                                     initWithFrame:CGRectMake(self.bounds.size.width / 2 - 6,
-                                                              self.bounds.size.height / 2 - 6, 12, 12)];
-        errorImgView.alpha = 0.3;
-        errorImgView.image = [UIImage imageNamed:@"warning"];
-        [self addSubview:errorImgView];
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error)
+        {
+            UIImageView *errorImgView = [[UIImageView alloc]
+                initWithFrame:CGRectMake(self.bounds.size.width / 2 - 6,
+                                         self.bounds.size.height / 2 - 6, 12, 12)];
+            errorImgView.alpha = 0.3;
+            errorImgView.image = [UIImage imageNamed:@"warning"];
+            [self addSubview:errorImgView];
         
-    }];
+        }];
     
     [operation start];
 }
