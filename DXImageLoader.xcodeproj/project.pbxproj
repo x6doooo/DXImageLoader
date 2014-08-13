@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5459FB519986DC600A57FEF /* DXImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5459FB419986DC600A57FEF /* DXImageScrollView.m */; };
+		E5459FB81999FCEF00A57FEF /* DXUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5459FB71999FCEF00A57FEF /* DXUIScrollView.m */; };
 		E5F1FB2C1993570D00E23BA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F1FB2B1993570D00E23BA2 /* Foundation.framework */; };
 		E5F1FB2E1993570D00E23BA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F1FB2D1993570D00E23BA2 /* CoreGraphics.framework */; };
 		E5F1FB301993570D00E23BA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F1FB2F1993570D00E23BA2 /* UIKit.framework */; };
@@ -46,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5459FB319986DC600A57FEF /* DXImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXImageScrollView.h; sourceTree = "<group>"; };
+		E5459FB419986DC600A57FEF /* DXImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXImageScrollView.m; sourceTree = "<group>"; };
+		E5459FB61999FCEF00A57FEF /* DXUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXUIScrollView.h; sourceTree = "<group>"; };
+		E5459FB71999FCEF00A57FEF /* DXUIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXUIScrollView.m; sourceTree = "<group>"; };
 		E5F1FB281993570D00E23BA2 /* DXImageLoader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DXImageLoader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F1FB2B1993570D00E23BA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E5F1FB2D1993570D00E23BA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -233,6 +239,10 @@
 			children = (
 				E5F1FB821993583000E23BA2 /* DXImageLoaderView.h */,
 				E5F1FB831993583000E23BA2 /* DXImageLoaderView.m */,
+				E5459FB319986DC600A57FEF /* DXImageScrollView.h */,
+				E5459FB419986DC600A57FEF /* DXImageScrollView.m */,
+				E5459FB61999FCEF00A57FEF /* DXUIScrollView.h */,
+				E5459FB71999FCEF00A57FEF /* DXUIScrollView.m */,
 			);
 			path = DXImageLoader;
 			sourceTree = "<group>";
@@ -355,9 +365,11 @@
 				E5F1FB78199357F000E23BA2 /* AFHTTPRequestOperation.m in Sources */,
 				E5F1FB7B199357F000E23BA2 /* AFNetworkReachabilityManager.m in Sources */,
 				E5F1FB80199357F000E23BA2 /* AFURLSessionManager.m in Sources */,
+				E5459FB81999FCEF00A57FEF /* DXUIScrollView.m in Sources */,
 				E5F1FB7E199357F000E23BA2 /* AFURLRequestSerialization.m in Sources */,
 				E5F1FB841993583000E23BA2 /* DXImageLoaderView.m in Sources */,
 				E5F1FB621993574500E23BA2 /* MDRadialProgressTheme.m in Sources */,
+				E5459FB519986DC600A57FEF /* DXImageScrollView.m in Sources */,
 				E5F1FB7F199357F000E23BA2 /* AFURLResponseSerialization.m in Sources */,
 				E5F1FB611993574500E23BA2 /* MDRadialProgressLabel.m in Sources */,
 				E5F1FB3C1993570D00E23BA2 /* DXAppDelegate.m in Sources */,
@@ -562,6 +574,7 @@
 				E5F1FB561993570E00E23BA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5F1FB571993570E00E23BA2 /* Build configuration list for PBXNativeTarget "DXImageLoaderTests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +583,7 @@
 				E5F1FB591993570E00E23BA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
