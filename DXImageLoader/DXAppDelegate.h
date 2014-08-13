@@ -11,5 +11,5 @@
 @interface DXAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-- (IBAction)uploadImage:(id)sender;
+- (void)uploadImage:(id)sender;
 @end

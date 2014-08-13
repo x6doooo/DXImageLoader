@@ -8,7 +8,7 @@
 
 #import "DXAppDelegate.h"
 #import "DXImageLoaderView.h"
-
+#import "DXImageScrollView.h"
 @implementation DXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -20,9 +20,9 @@
     
     int imageSizeWidth = 300;
     int imageSizeHeight = 150;
-    DXImageLoaderView *imageView0 = [[DXImageLoaderView alloc] initWithFrame:CGRectMake(10, 30,
-                                                                            imageSizeWidth,
-                                                                            imageSizeHeight)];
+    DXImageLoaderView *imageView0 = [[DXImageLoaderView alloc]
+                                     initWithFrame:CGRectMake(10, 30, imageSizeWidth, imageSizeHeight)];
+    
     imageView0.backgroundColor = [UIColor whiteColor];
     imageView0.layer.borderColor = [[UIColor blackColor] CGColor];
     imageView0.layer.borderWidth = 0.5f;
@@ -38,16 +38,35 @@
     // 上传
     imageView0.tag = 101;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(120, 300, 80, 30);
+    button.frame = CGRectMake(120, 200, 80, 30);
     [button setTitle:@"upload" forState:UIControlStateNormal];
     [button addTarget:self
                action:@selector(uploadImage:)
      forControlEvents:UIControlEventTouchUpInside];
     [self.window addSubview:button];
+    
+    UIButton *scaleViewButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    scaleViewButton.frame = CGRectMake(120, 280, 80, 30);
+    [scaleViewButton setTitle:@"scale" forState:UIControlStateNormal];
+    [self.window addSubview:scaleViewButton];
+    
+    [scaleViewButton addTarget:self action:@selector(showme:)
+              forControlEvents:UIControlEventTouchUpInside];
+    
     return YES;
 }
 
-- (IBAction)uploadImage:(id)sender
+- (void)showme:(id)sender
+{
+    DXImageScrollView *img = [[DXImageScrollView alloc] initWithFrame:self.window.frame];
+//    NSLog(@"%@", self.window.bounds);
+    DXImageLoaderView *imageView0 = (DXImageLoaderView *)[self.window viewWithTag:101];
+    [img setImage:imageView0.image];
+    img.maxScale = 3.0;
+    [self.window addSubview:img];
+}
+
+- (void)uploadImage:(id)sender
 {
     DXImageLoaderView *imageView0 = (DXImageLoaderView *)[self.window viewWithTag:101];
     [imageView0 uploadImage:@"http://182.92.184.22/postTestAction"
