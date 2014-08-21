@@ -16,11 +16,13 @@
     //计数
     int count = touch.tapCount;
     //单击
-    if (count==1) {
-        //延迟0.5秒执行单击方法
+    if (count == 1)
+    {
+        //延迟执行单击方法
         [self performSelector:@selector(singleTap) withObject:nil afterDelay:0.2];
     }
-    else if(count==2){
+    else if (count == 2)
+    {
         //取消单击方法
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(singleTap) object:nil];
         //执行双击方法
