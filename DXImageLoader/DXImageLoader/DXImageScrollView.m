@@ -25,6 +25,7 @@
         theScroll.minimumZoomScale = 1.0;
         theScroll.decelerationRate = 1.0;
         theScroll.delegate = self;
+        // 代理缩放视图的单双击操作
         theScroll.imageScrollViewDelegate = self;
         theScroll.backgroundColor = [UIColor blackColor];
         theScroll.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|
@@ -43,20 +44,7 @@
         //图片默认作为2倍图处理
         
         [theScroll addSubview:theImage];
-        /*
-        //单击
-        UITapGestureRecognizer *singleGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleGesture:)];
-        singleGesture.numberOfTapsRequired = 1;
-        [theImage addGestureRecognizer:singleGesture];
-        //双击手势
-        UITapGestureRecognizer *doubelGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleGesture:)];
-        doubelGesture.numberOfTapsRequired = 2;
-        [theImage addGestureRecognizer:doubelGesture];
         
-        [singleGesture requireGestureRecognizerToFail:doubelGesture];
-        */
-        
-        //other
     }
     return self;
 }
