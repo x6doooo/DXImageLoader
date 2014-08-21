@@ -95,11 +95,11 @@
                                         initWithFrame:CGRectMake(orginX, orginY,
                                                                 self.processCircleWidth,
                                                                 self.processCircleHeight)];
-	radialView.progressTotal = 100;
+    radialView.progressTotal = 100;
     radialView.progressCounter = 0;
     radialView.theme.thickness = self.processCircleThickness;
-	radialView.theme.incompletedColor = [UIColor clearColor];
-	radialView.theme.completedColor = self.processCircleCompletedColor;
+    radialView.theme.incompletedColor = [UIColor clearColor];
+    radialView.theme.completedColor = self.processCircleCompletedColor;
     radialView.theme.sliceDividerHidden = YES;
     radialView.label.hidden = YES;
 	
@@ -142,4 +142,7 @@
     
     [operation start];
 }
+
+-(void)initTouchEventHandler
+{}
 @end
